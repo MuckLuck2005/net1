@@ -1,0 +1,43 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введіть значення xmin:");
+        double xmin = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введіть значення xmax:");
+        double xmax = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введіть крок dx:");
+        double dx = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введіть значення a:");
+        double a = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введіть значення k:");
+        double k = double.Parse(Console.ReadLine());
+
+        Console.WriteLine("x\t\tf(x)");
+
+        for (double x = xmin; x <= xmax; x += dx)
+        {
+            double result = CalculateFunction(x, a, k);
+            Console.WriteLine($"{x}\t\t{result}");
+        }
+    }
+
+    static double CalculateFunction(double x, double a, double k)
+    {
+        if (x <= 0 || double.IsNaN(x))
+        {
+            return double.NaN;
+        }
+
+        double value = Math.Cos(a * x);
+        double result = Math.Pow(value, 1.0 / 3.0) + (k * Math.Cos(a * x) / Math.Log(x));
+
+        return result;
+    }
+}
