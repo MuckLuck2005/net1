@@ -1,0 +1,59 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        LinearCalculation();
+        Branching();
+        Loop();
+    }
+
+    static void LinearCalculation()
+    {
+        Console.WriteLine("Введіть перше число:");
+        int num1 = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введіть друге число:");
+        int num2 = int.Parse(Console.ReadLine());
+
+        int sum = num1 + num2;
+        Console.WriteLine($"Сума чисел: {sum}");
+    }
+
+    static void Branching()
+    {
+        Console.WriteLine("Введіть перше число:");
+        int num1 = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Введіть друге число:");
+        int num2 = int.Parse(Console.ReadLine());
+
+        if (num1 > num2)
+        {
+            Console.WriteLine($"Більше число: {num1}");
+        }
+        else if (num2 > num1)
+        {
+            Console.WriteLine($"Більше число: {num2}");
+        }
+        else
+        {
+            Console.WriteLine("Числа рівні між собою.");
+        }
+    }
+
+    static void Loop()
+    {
+        Console.WriteLine("Введіть число для виведення послідовності:");
+        int n = int.Parse(Console.ReadLine());
+
+        Console.WriteLine("Числа від 1 до " + n + ":");
+
+        for (int i = 1; i <= n; i++)
+        {
+            Console.Write(i + " ");
+        }
+        Console.WriteLine();
+    }
+}
