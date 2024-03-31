@@ -1,0 +1,45 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введіть значення xmin:");
+        double xmin = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введіть значення xmax:");
+        double xmax = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введіть значення кроку dx:");
+        double dx = Convert.ToDouble(Console.ReadLine());
+
+        Console.WriteLine("Введіть значення c:");
+        double c = Convert.ToDouble(Console.ReadLine());
+
+        ТабулюватиФункцію(xmin, xmax, dx, c);
+
+        Console.ReadLine();
+    }
+
+    static void ТабулюватиФункцію(double xmin, double xmax, double dx, double c)
+    {
+        Console.WriteLine(" x \t| f(x)");
+        Console.WriteLine("--------------------");
+
+        for (double x = xmin; x <= xmax; x += dx)
+        {
+            double результат = РозрахуватиФункцію(x, c);
+            Console.WriteLine($"{x:F3} \t| {результат:F3}");
+        }
+    }
+
+    static double РозрахуватиФункцію(double x, double c)
+    {
+        double pi = Math.PI;
+        double ln = Math.Log(x * x + 1);
+
+        double результат = Math.Pow(c * c * x * x + 2, 1.0 / 3) + (ln / (2 * pi));
+
+        return результат;
+    }
+}
